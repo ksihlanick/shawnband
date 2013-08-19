@@ -1,0 +1,40 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+
+<ul>
+<% @songs.each do |song| %>
+   <li><%= song.key %> - <%= link_to "Delete",  "songs/delete/?song=" + song.key, :confirm => 'Are you sure you want to delete ' + song.key + '?' %></li>
+   <li><a id="audio" class = "rtmp" style="display:block;width:708px;height:30px;"
+    href=mp3:<%=song.key.split('.')[0]%> ></a></li>
+<% end %>
+</ul>
+
+<!-- Call the Flowplayer JavaScript file. -->
+<script src="http://d1r35ym006k5wi.cloudfront.net/flowplayer-3.2.12.min.js"></script>
+
+<script type="text/javascript">
+$f("a.rtmp", "http://d1r35ym006k5wi.cloudfront.net/flowplayer-3.2.16.swf", { 
+   // Configure Flowplayer to use the RTMP plugin for streaming. 
+   clip: {
+      provider: 'rtmp',
+      autoPlay: false
+   }, 
+
+   // Specify the location of the RTMP plugin.
+   plugins: {  
+      rtmp: {  
+         url: 'http://d1r35ym006k5wi.cloudfront.net/flowplayer.rtmp-3.2.12.swf',
+
+         // Replace STREAMING-DISTRIBUTION-DOMAIN-NAME with the domain name of your 
+         // CloudFront streaming distribution, for example, s5c39gqb8ow64r.cloudfront.net.
+         netConnectionUrl: 'rtmp://s3w2s11eretoss.cloudfront.net/cfx/st' ,
+         durationFunc: 'getStreamLength'
+      },
+      controls: {
+         fullscreen: false,
+         height: 30,
+         autoHide: false
+      }
+   }
+});
+</script>
