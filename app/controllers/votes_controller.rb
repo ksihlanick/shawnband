@@ -6,9 +6,9 @@ class VotesController < ApplicationController
   	if @vote.save
       flash[:success] = "Thanks so much!  We are one step closer to releasing our album.  Feel free to rate more songs:"
   		redirect_to root_path
-      
   	else
-  		render 'new'
+      flash[:error] = "Please make a selection before voting!"
+      redirect_to root_path
   	end
   end
 
