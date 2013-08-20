@@ -1,24 +1,37 @@
-<h1>Votes#index</h1>
 
-<div class="row table">
-<table>
-  <tr>
-    <th>ip</th>
-    <th>song1</th>
-    <th>song2</th>
-    <th>favsong</th>
-    <th>comment</th>
-  </tr>
+<div class="container-narrow title">
+ <h1>All the Votes</h1>
+</div>
 
-<% @votes.each do |vote| %>
-  <tr>
-  	<td> <%= vote.ip %> </td>
-  	<td> <%= vote.song1 %> </td>
-	<td> <%= vote.song2 %> </td>
-	<td> <%= vote.favsong %> </td>
-	<td> <%= vote.comment %> </td>
-  </tr>
-<% end %>
 
-</table>
+<div class="container-fluid center">
+  <div class="row-fluid center">
+
+  	<div class="span4">
+  	</div>
+
+	<div class="row table">
+	<table>
+	  <tr>
+	    <th>ip</th>
+	    <th>song1</th>
+	    <th>song2</th>
+	    <th>favsong</th>
+	    <th>comment</th>
+	  </tr>
+
+	<% @votes.each do |vote| %>
+	  <tr>
+	  	<td> <%= vote.ip %> </td>
+	  	<td> <%= vote.song1 %> </td>
+		<td> <%= vote.song2 %> </td>
+		<td> <%= vote.favsong %> </td>
+		<td> <%= vote.comment %> </td>
+	  </tr>
+	<% end %>
+
+	</table>
+	</div>
+
+	</div>
 </div>
