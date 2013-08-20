@@ -1,12 +1,6 @@
 class VotesController < ApplicationController
-  
-  def index #should be password protected - fix this
-    @votes = Vote.all
-  end
 
   def create
-    #@user = User.new(params[:user])
-    @remoteip = request.remote_ip
     @vote = Vote.create
     @vote.set_vote_attributes(params[:vote])
   	if @vote.save
@@ -19,12 +13,14 @@ class VotesController < ApplicationController
   end
 
   def new
+  	@remoteip = request.remote_ip
   	@allsongs = AWS::S3::Bucket.find(BUCKET).objects
   	@song1 = @allsongs.sample
+  	@allsongs.delete(@song1)
   	@song2 = @allsongs.sample
-  	if (@song1 == @song2)
-  		@song2 = @allsongs.sample
-  	end
+  	# if (@song1 == @song2)
+  	# 	@song2 = @allsongs.sample
+  	# end
   	@songs = [@song1,@song2]
 
   	@vote = Vote.new
