@@ -55,6 +55,3 @@ table {
   border-spacing: 0;
 }
 /* END OF RESET - Start of Your CSS*/
-
-@import 'bootstrap';
-@import "bootstrap-responsive";
