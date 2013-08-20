@@ -1,10 +1,11 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>New!</h1>
+
+<% provide(:title, 'New') %>
 
 <ul>
 <% @songs.each do |song| %>
    <li><%= song.key %> - <%= link_to "Delete",  "songs/delete/?song=" + song.key, :confirm => 'Are you sure you want to delete ' + song.key + '?' %></li>
-   <li><a id="audio" class = "rtmp" style="display:block;width:708px;height:30px;"
+   <li><a id="audio" class = "rtmp" style="display:block;width:300px;height:30px;"
     href=mp3:<%=song.key.split('.')[0]%> ></a></li>
 <% end %>
 </ul>
@@ -39,3 +40,5 @@ $f("a.rtmp", "http://d1r35ym006k5wi.cloudfront.net/flowplayer-3.2.16.swf", {
    }
 });
 </script>
+
+<%= render 'form' %>
