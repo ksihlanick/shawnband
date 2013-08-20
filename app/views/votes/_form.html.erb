@@ -10,9 +10,10 @@
 
 
       <%= f.radio_button(:favsong, "1") %>
-      <%= f.label("song1isbetter") %>
+      <%= @songs.first.key %>
+      <p></p>
       <%= f.radio_button(:favsong, "2") %>
-      <%= f.label("song2isbetter") %>
+      <%= @songs.last.key %>
     
  
 
