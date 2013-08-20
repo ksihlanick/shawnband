@@ -8,8 +8,8 @@
 <% @songs.each do |song| %>
 	<div row center>
    		<li><%= song.key %></li>
-   <li><a id="audio" class = "rtmp" style="display:block;width:300px;height:30px;"
-    href=mp3:<%=song.key.split('.')[0]%> ></a></li>
+   <li><a id="audio" class = "rtmp" style="display:block;width:708px;height:30px;"
+    href=mp3:<%=song.key.split('.mp3')[0]%> ></a></li>
     </div>
 <% end %>
 </ul>
