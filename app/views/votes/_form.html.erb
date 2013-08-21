@@ -9,17 +9,14 @@
 
   <div class="control-group">
 
-    <div class="span6 right">
-      <%= f.radio_button(:favsong, "1") %>
-      <%= @songs.first.key %>
-    </div>
-    <div class="span6 right">
-      <%= f.radio_button(:favsong, "2") %>
-      <%= @songs.last.key %>
-    </div>
+
+    <%= f.submit "Left!", class: "btn btn-large btn-primary", :disable_with => "Please wait..." %>
+
+    <input class="btn btn-large btn-primary" onClick="history.go(0)" data-disable-with="Please wait..." name="commit" type="submit" value="Skip!" />
+    
+    <%= f.submit "Right!", class: "btn btn-large btn-primary", :disable_with => "Please wait..." %>
 
 
-    <%= f.submit "Vote Now!", class: "btn btn-large btn-primary", :disable_with => "Please wait..." %>
 
     <p></p>
 

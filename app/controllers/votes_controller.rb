@@ -2,12 +2,21 @@ class VotesController < ApplicationController
 
   def create
     @vote = Vote.create
+
+    if params[:commit] == "Left!"
+      params[:vote].merge!(:favsong => '1')
+    elsif params[:commit] == "Right!"
+      params[:vote]
+      params[:vote].merge!(:favsong => '2')
+    else
+    end
+
     @vote.set_vote_attributes(params[:vote])
-  	if @vote.save
+  	
+    if @vote.save
       flash[:success] = "Thanks so much!  We are one step closer to releasing our album.  Feel free to rate more songs:"
   		redirect_to root_path
   	else
-      flash[:error] = "Please make a selection before voting!"
       redirect_to root_path
   	end
   end
