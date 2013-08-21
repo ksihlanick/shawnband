@@ -1,6 +1,8 @@
 Shawnband::Application.routes.draw do
   get "welcome/index"
 
+  match '/about', to: 'static_pages#about'
+
   root :to => 'votes#new'
 
   resources :votes, :only => [:new, :create, :show]
