@@ -4,15 +4,36 @@
 	<h1>Vote for the best song!</h1>
 </div>
 
-<ul>
-<% @songs.each do |song| %>
-	<div row center>
-   		<li><%= song.key %></li>
-   <li><a id="audio" class = "rtmp" style="display:block;width:300px;height:30px;"
-    href=mp3:<%=song.key.split('.mp3')[0]%> ></a></li>
-    </div>
-<% end %>
-</ul>
+<div class= "container-narrow title center">
+   <h3> Listen to both songs and then vote for your favorite! We'll do funny math based on the results and this will help us put the album together!</h3>
+</div>
+
+<div style="background: #ffffff; margin: 20px auto; text-align: center; width: 571px;">
+   <div>
+      <img src="/assets/ShawnAndSax.jpg" width="571" height="381" alt="Shawn" />
+   </div>
+</div>
+
+<div class="row" >
+   <div class="span6 right">
+      <ul>
+         <li><%= @songs.first.key %></li>
+         <li><a id="audio" class = "rtmp" style="display:block;width:400px;height:30px;"
+       
+         href=mp3:<%=@songs.first.key.split('.mp3')[0]%> ></a></li>
+      </ul>
+   </div>
+
+   <div class="span6 center">
+      <ul>
+         <li><%= @songs.last.key %></li>
+         <li><a id="audio" class = "rtmp" style="display:block;width:400px;height:30px;"
+       
+         href=mp3:<%=@songs.last.key.split('.mp3')[0]%> ></a></li>
+      </ul>
+   </div>
+</div>
+
 
 
 <!-- Call the Flowplayer JavaScript file. -->
