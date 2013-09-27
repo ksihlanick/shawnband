@@ -9,7 +9,12 @@ Shawnband::Application.routes.draw do
   
   namespace :admin do
     resources :votes, :except => :create
+    match '/noskips', to: 'votes#noskips'
+    match '/skips', to: 'votes#skips'
+    match '/comments', to: 'votes#comments'
   end
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

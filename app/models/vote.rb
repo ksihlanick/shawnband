@@ -2,7 +2,9 @@ class Vote < ActiveRecord::Base
   #attr_accessible :ip, :song1, :song2, :favsong, :comment
 
 
-  validates(:favsong, presence: true )
+  #validates(:favsong, presence: true )
+  validates_presence_of :comment, :if => :skipped_true?
+  validates_presence_of :ip
 
   def set_vote_attributes(vote_hash)
     self.ip = vote_hash[:ip]
@@ -13,9 +15,14 @@ class Vote < ActiveRecord::Base
     elsif (vote_hash[:favsong] === "2")
       self.favsong = vote_hash[:song2]
     else
+      self.favsong = ''
     end
 
     self.comment = vote_hash[:comment]
+  end
+
+  def skipped_true?
+    self.favsong === ''
   end
 
 end

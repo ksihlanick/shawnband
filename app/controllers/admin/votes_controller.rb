@@ -5,6 +5,24 @@ class Admin::VotesController < ApplicationController
     @votes = Vote.all
   end
 
+  def noskips
+    @votes = Vote.where("favsong != ''")
+  end
+
+  def comments
+    @votes = Vote.where("comment != ''")
+  end
+
+  def skips
+    @votes = Vote.where("favsong = ''")
+  end
+
+  # def stats
+  #   @votes = Vote.all
+  #   @votes.each do |vote|
+  #   end
+  # end
+
   protected
 
   def authenticate

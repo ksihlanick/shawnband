@@ -8,6 +8,9 @@ class VotesController < ApplicationController
     elsif params[:commit] == "Right!"
       params[:vote]
       params[:vote].merge!(:favsong => '2')
+    elsif params[:commit] == "Skip!"
+      params[:vote]
+      params[:vote].merge!(:favsong => '3')
     else
     end
 
