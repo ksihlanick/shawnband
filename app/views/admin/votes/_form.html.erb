@@ -13,7 +13,10 @@
 	<div class="row table">
 	<table>
 	  <tr>
+	  	<th>starttime</th>
 	  	<th>time</th>
+	  	<th>duration</th>
+	  	<th>name</th>
 	    <th>ip</th>
 	    <th>song1</th>
 	    <th>song2</th>
@@ -23,7 +26,10 @@
 
 	<% @votes.each do |vote| %>
 	  <tr>
+	  	<td> <%= vote.start_time %> </td>
 	  	<td> <%= vote.created_at %> </td>
+	  	<td> <%= (vote.created_at) - (vote.start_time)%>
+	  	<td> <%= vote.name %> </td>
 	  	<td> <%= vote.ip %> </td>
 	  	<td> <%= vote.song1 %> </td>
 		<td> <%= vote.song2 %> </td>

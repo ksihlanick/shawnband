@@ -18,6 +18,9 @@ class Vote < ActiveRecord::Base
       self.favsong = ''
     end
 
+    self.name = vote_hash[:name]
+    self.start_time = vote_hash[:start_time]
+
     self.comment = vote_hash[:comment]
   end
 
