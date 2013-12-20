@@ -29,11 +29,8 @@
 
     <p></p>
 
-    <div class="controls">
-      <%= f.text_area :comment, :required => false, :placeholder => "Type a comment here!  You can tell us what you loved, what you didn’t love, who you love, what you ate for breakfast, a concise proof to Fermat’s Last Theorem, or a Proof of P equals or not-equal NP.", :rows=>4 %>
-    </div>
-
-    <div class="controls">
+    <div class ="row">
+    <div class="controls span6 right">
 
       <%if session[:name].nil? %>
         <%= f.text_area :name, :required => false, :placeholder => "Your Name (optional)", :rows=>4 %>
@@ -42,6 +39,12 @@
       <%end%>  
 
     </div>
+
+    <div class="controls span1 left">
+      <%= f.text_area :comment, :required => false, :placeholder => "Type a comment here!  You can tell us what you loved, what you didn’t love, who you love, what you ate for breakfast, a concise proof to Fermat’s Last Theorem, or a Proof of P equals or not-equal NP.", :rows=>4 %>
+    </div>
+    </div>
+
     
   </div>
 
