@@ -35,18 +35,12 @@
 
     <div class="controls">
 
-      <%if defined? session[:name]%>
-        <%if session[:name] == ""%>
-          <%= f.text_area :name, :required => false, :placeholder => "Your Name (optional)", :rows=>4 %>
-        <%else%>
-          <%= f.text_area :name, :required => false, :value => session[:name], :rows=>4 %>
-        <%end%>
-      <%elsif%>
-        <p>not defined</p>
+      <%if session[:name].nil? %>
         <%= f.text_area :name, :required => false, :placeholder => "Your Name (optional)", :rows=>4 %>
+      <%else%>
+        <%= f.text_area :name, :required => false, :value => session[:name], :rows=>4 %>
       <%end%>  
 
-      
     </div>
     
   </div>
